@@ -11,6 +11,10 @@ def read_table(filename):
     """Read the table data in a Pandas DataFrame"""
     return pd.read_csv(filename)
 
+def show_result(result):
+    """Print the result value and the corresponding column name"""
+    print('Day: ' + str(result['Day']))
+
 def analyse_table(table):
     """Find the day that has the smallest temperature variation"""
     
@@ -18,7 +22,8 @@ def analyse_table(table):
     diff = abs(table['MxT'] - table['MnT'])
     
     #find the minimal value and  show the result
-    print(table.loc[diff.idxmin()])
+    show_result(table.loc[diff.idxmin()])
+
 
 ############### main program ###############
 data = read_table('weather.csv')
